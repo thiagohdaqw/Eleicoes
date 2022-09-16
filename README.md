@@ -10,7 +10,4 @@ $ cp kafka-libs/* $KAFKA_HOME/libs
 $ cp config/kafka/* $KAFKA_HOME/config/
 ```
 
-- copie os arquivos de configuração para o elasticsearch, isso irá desativar a autenticação
-```
-$ cp config/elasticsearch/* $ELASTICSEARCH_HOME/config
-```
+- Desative a autenticação do elasticsearch setando para `false` as chaves `xpack.security.enabled` e `xpack.security.enrollment.enabled` em `$ELASTICSEARCH_HOME/config/elastisearch.yml`
