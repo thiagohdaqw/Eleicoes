@@ -7,7 +7,7 @@ load_dotenv()
 
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
 KAFKA_SERVER = '0.0.0.0:9092'
-MESSAGE_TOPIC = 'message'
+MESSAGE_TOPIC = 'wc'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 client = tweepy.Client(bearer_token=TWITTER_BEARER_TOKEN)
