@@ -372,6 +372,8 @@ desequilibrado
 Pessimista
 Ressentido
 Rude
+Triste
+Infeliz
 Tacanho
 Mesquinho
 Cabeça de porco
@@ -423,6 +425,10 @@ Desconhecimento
 Intrometido
 Melodramático
 Detestável
+Ladrão
+Ladao
+corrupto
+odeio
 Você é um bagunceiro
 Você sempre está desejando irritar
 Você deve aprender com o seu primo

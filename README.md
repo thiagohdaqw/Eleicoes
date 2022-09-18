@@ -15,7 +15,8 @@ $ cp config/kafka/* $KAFKA_HOME/config/
 # Referências
 - Dataset
     - Stopwords: https://github.com/stopwords-iso/stopwords-pt/blob/master/stopwords-pt.txt
-    - Palavras Positivas: 
+    - Palavras Positivas:
+        - https://www.dicio.com.br/palavras-positivas/
         - https://www.42frases.com.br/frases-positivas-curtas/
         - https://www.pensador.com/frases_positivas/
         - https://www.educlub.com.br/lista-de-palavras-positivas-para-aumentar-a-autoestima/
