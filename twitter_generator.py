@@ -1,6 +1,7 @@
 from kafka import KafkaProducer
 import tweepy
 import os
+import time
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -8,6 +9,7 @@ load_dotenv()
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
 KAFKA_SERVER = '0.0.0.0:9092'
 MESSAGE_TOPIC = 'wc'
+ELECTION_TOPIC = 'election'
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 client = tweepy.Client(bearer_token=TWITTER_BEARER_TOKEN)
@@ -21,13 +23,25 @@ def on_send_error(excp):
 
 candidates = ['Lula', 'Bolsonaro', 'Simone Tebet', 'Ciro Gomes']
 
-for candidate in candidates:
-    # generate sentences based on candidate search
-    tweets = client.search_recent_tweets(query=candidate, max_results=10)
+while(True):
+    # send to word count topic
+    tweets = client.search_recent_tweets(query="covid", max_results=100)
 
     sentences = [tweet.text for tweet in tweets.data]
 
-    # Send the sentence to kafka topic
     for sentence in sentences:
         producer.send(MESSAGE_TOPIC, sentence.encode()).add_callback(on_send_success).add_errback(on_send_error)
         producer.flush()
+
+    # send to candidate topic
+    for candidate in candidates:
+        tweets = client.search_recent_tweets(query=candidate, max_results=10)
+
+        sentences = [tweet.text for tweet in tweets.data]
+
+        for sentence in sentences:
+            phrase = f'${candidate},${sentence}'
+            producer.send(ELECTION_TOPIC, phrase.encode()).add_callback(on_send_success).add_errback(on_send_error)
+            producer.flush()
+
+    time.sleep(10)
