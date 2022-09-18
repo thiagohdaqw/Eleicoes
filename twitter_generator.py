@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
-KAFKA_SERVER = '0.0.0.0:9092'
-MESSAGE_TOPIC = 'wc'
-ELECTION_TOPIC = 'election'
+TWITTER_INTERVAL_SECONDS = os.getenv('TWITTER_INTERVAL_SECONDS', 60)
+KAFKA_SERVER = os.getenv("KAFKA_SERVER", '0.0.0.0:9092')
+WORDS_TOPIC = os.getenv("WORDS_TOPIC", "wc")
 
 producer = KafkaProducer(bootstrap_servers=KAFKA_SERVER)
 client = tweepy.Client(bearer_token=TWITTER_BEARER_TOKEN)
@@ -23,7 +23,7 @@ def on_send_error(excp):
 
 candidates = ['Lula', 'Bolsonaro', 'Simone Tebet', 'Ciro Gomes']
 
-while(True):
+while True:
     # send to word count topic
     tweets = client.search_recent_tweets(query="covid", max_results=100)
 
@@ -41,7 +41,7 @@ while(True):
 
         for sentence in sentences:
             phrase = f'${candidate},${sentence}'
-            producer.send(ELECTION_TOPIC, phrase.encode()).add_callback(on_send_success).add_errback(on_send_error)
+            producer.send(WORDS_TOPIC, phrase.encode()).add_callback(on_send_success).add_errback(on_send_error)
             producer.flush()
 
-    time.sleep(10)
+    time.sleep(TWITTER_INTERVAL_SECONDS)

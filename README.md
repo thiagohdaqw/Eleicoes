@@ -27,7 +27,8 @@ $ cp config/kafka/* $KAFKA_HOME/config/
 ## 3. Configurações de Ambiente
 - Configure o token de autenticação do twitter na variavel de ambiente `TWITTER_BEARER_TOKEN`
 - Insira as credenciais do Elasticsearch em `$KAFKA_HOME/config/elasticsearch-connect.properties` nas chaves `connection.username` e `connection.password` ou desative a autenticação do elasticsearch setando para `false` as chaves `xpack.security.enabled` e `xpack.security.enrollment.enabled` em `$ELASTICSEARCH_HOME/config/elastisearch.yml`
-- Configure a url do Spark master na varivel `SPARK_MASTER` e do Kafka na variavel `KAFKA_SERVER` nos scripts.
+- Configure a url do Spark master na varivel `SPARK_MASTER` e do Kafka na variavel `KAFKA_SERVER` como variaveis de ambiente, o `.env.example` mostra exemplos.
+- É recomendado limitar a quantidade máxima de memoria ram do elasticsearch, é possivel realizar isso no arquivo `$ELASTICSEARCH_HOME/config/jvm.options` nas chaves `-Xms` e `-Xmx`.
 
 # Uso
 ## 1. Inicie o ambiente
@@ -49,7 +50,7 @@ $ $KIBANA_HOME/bin/kibana
 - Va para a seção de visualização e visualize o dashboard.
 
 ## 3. Predição e Contagem de Palavras
-- Inicie os Jupyter Notebooks `predict.ipynb` e `wc.ipynb` até a seção de `Sink`.
+- Inicie os Jupyter Notebooks `predict.ipynb` e `wordCount.ipynb` até a seção de `Sink`.
 
 # Referências
 - Spark Streaming: https://spark.apache.org/docs/latest/streaming-programming-guide.html
