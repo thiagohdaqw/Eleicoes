@@ -21,3 +21,7 @@ $ cp config/kafka/* $KAFKA_HOME/config/
 - Palavras Negativas:
     - https://aprenderpalavras.com/lista-de-palavroes-xingamentos-e-girias/
     - https://kiwiask.com/ola-alguem-pode-me-dar-uma-lista-com-50-palavras-negativas-e-50-palavras-positivas-preciso-para-hoje/
+    - https://share-danielfeau.com/pt/a-lista-%C3%BAtil-do-escritor-de-111-adjetivos-negativos-para-descrever-uma-pessoa/
+    - https://br.guiainfantil.com/materias/educacao/comportamentofrases-negativas-que-desmotivam-as-criancas/
+    - https://segredosdomundo.r7.com/xingamentos-brasil/
+    - https://pt.lambdageeks.com/negative-sentence-examples/
