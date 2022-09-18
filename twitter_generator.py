@@ -41,7 +41,7 @@ while True:
         sentences = [tweet.text for tweet in candidate_tweets.data]
 
         for sentence in sentences:
-            phrase = f'${candidate},${sentence}'
+            phrase = f'{candidate},{sentence}'
             producer.send(ELECTION_TOPIC, phrase.encode()).add_callback(on_send_success).add_errback(on_send_error)
             producer.flush()
 
