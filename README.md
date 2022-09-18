@@ -36,6 +36,7 @@ $ cp config/kafka/* $KAFKA_HOME/config/
 # KAFKA
 $ $KAFKA_HOME/bin/zookeeper-server-start.sh -daemon config/zookeeper.properties          
 $ $KAFKA_HOME/bin/kafka-server-start.sh -daemon config/server.properties
+$ $KAFKA_HOME/bin/connect-standalone.sh config/connect-standalone.properties config/elasticsearch-connect.properties
 
 # SPARK
 $ $SPARK_HOME/sbin/start-all.sh

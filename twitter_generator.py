@@ -24,15 +24,6 @@ def on_send_error(excp):
 candidates = ['Lula', 'Bolsonaro', 'Simone Tebet', 'Ciro Gomes']
 
 while True:
-    # send to word count topic
-    tweets = client.search_recent_tweets(query="covid", max_results=100)
-
-    sentences = [tweet.text for tweet in tweets.data]
-
-    for sentence in sentences:
-        producer.send(MESSAGE_TOPIC, sentence.encode()).add_callback(on_send_success).add_errback(on_send_error)
-        producer.flush()
-
     # send to candidate topic
     for candidate in candidates:
         tweets = client.search_recent_tweets(query=candidate, max_results=10)
@@ -44,4 +35,5 @@ while True:
             producer.send(WORDS_TOPIC, phrase.encode()).add_callback(on_send_success).add_errback(on_send_error)
             producer.flush()
 
+    print(f"Sleeping for {TWITTER_INTERVAL_SECONDS} seconds")
     time.sleep(TWITTER_INTERVAL_SECONDS)
