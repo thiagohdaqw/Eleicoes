@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TWITTER_BEARER_TOKEN = os.getenv('TWITTER_BEARER_TOKEN')
-TWITTER_INTERVAL_SECONDS = os.getenv('TWITTER_INTERVAL_SECONDS', 60)
+TWITTER_INTERVAL_SECONDS = int(os.getenv('TWITTER_INTERVAL_SECONDS', 60))
 KAFKA_SERVER = os.getenv("KAFKA_SERVER", '0.0.0.0:9092')
 WORDS_TOPIC = os.getenv("WORDS_TOPIC", "wc")
 ELECTION_TOPIC = os.getenv("ELECTION_TOPIC", "election")
