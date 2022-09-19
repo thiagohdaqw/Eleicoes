@@ -6,7 +6,8 @@
 - [Python](https://www.python.org/downloads/)
 
 # Screenshots
-- ...
+![stats](./assets/stats.png)
+![eleicao](./assets/election.png)
 
 # Instalação
 ## 1. Instale as dependencias
