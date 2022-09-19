@@ -47,7 +47,7 @@ $ $KIBANA_HOME/bin/kibana
 ```
 
 ## 2. Kibana
-- Importe o `base_dados.ndjson` na pagina de `Saved Objects`do Kibana.
+- Importe o `config_kibana.ndjson` na pagina de `Saved Objects`do Kibana.
 - Va para a seção de visualização e visualize o dashboard.
 
 ## 3. Predição e Contagem de Palavras
