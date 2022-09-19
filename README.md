@@ -1,3 +1,7 @@
+# Introdução
+
+Como forma de melhorar os conhecimentos relacionados a programação paralela e distribuída, este presente repositório visa apresentar uma solução para leitura e processamento de dados advindos da rede social Twitter e exibir os dados e estatísticas de forma gráfica, utilizando para isso o Apache Spark, Apache Kafka, ElasticSearch e Kibana.
+
 # Pre-requisitos
 - [Apache Spark](https://spark.apache.org/downloads.html)
 - [Apache Kafka](https://kafka.apache.org/downloads)
@@ -6,6 +10,7 @@
 - [Python](https://www.python.org/downloads/)
 
 # Screenshots
+![wordCount](https://user-images.githubusercontent.com/74625814/190939632-f3d4daaf-fa75-4098-b3da-f42d49ed1eb9.png)
 ![stats](./assets/stats.png)
 ![eleicao](./assets/election.png)
 
