@@ -26,7 +26,7 @@ candidates = ['Lula', 'Bolsonaro', 'Simone Tebet', 'Ciro Gomes']
 
 while True:
     # send to word count topic
-    tweets = twitter_client.search_recent_tweets(query="covid", max_results=100)
+    tweets = twitter_client.search_recent_tweets(query="covid", max_results=10)
 
     sentences = [tweet.text for tweet in tweets.data]
 
